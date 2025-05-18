@@ -44,7 +44,7 @@ body {
   background-color: #00ff99;
 }
 
-/* body::before {
+body::before {
   content: "";
   position: absolute;
   height: 100%;
@@ -53,15 +53,15 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(1, 81, 49, 0.3);
   pointer-events: none;
   z-index: 1;
-} */
+}
 
-/* body > * {
+body > * {
   position: relative;
   z-index: 2;
-} */
+}
 
 .option-card.glass {
   background: rgba(0, 0, 0, 0.2);
@@ -79,11 +79,17 @@ body {
   border: 1px solid rgba(0, 255, 153, 1);
 }
 
+.container {
+  padding-bottom: 1rem;
+  padding-top: 5rem;
+}
+
 /* Decorative left panel for large screens */
 @media (min-width: 992px) {
   .intro-panel {
     border-radius: 1rem 0 0 1rem;
-    background: linear-gradient(135deg, #90caf9 0%, #e3f2fd 100%);
+    /* background: linear-gradient(135deg, #90caf9 0%, #e3f2fd 100%); */
+    background: transparent;
     box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.08);
     color: #fff;
     padding: 3rem 2rem;
