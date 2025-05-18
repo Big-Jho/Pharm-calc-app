@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pharmaceutical Calculator - Welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        /* background: linear-gradient(135deg, #e3f2fd 0%, #fff 100%); */
+        background: url("../images/cover.png") center center/cover no-repeat
+          no-repeat;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .option-card {
+        transition: box-shadow 0.2s;
+        cursor: pointer;
+      }
+      .option-card:hover,
+      .option-card:focus {
+        box-shadow: 0 0 0 0.2rem #0d6efd33;
+        border-color: #0d6efd;
+      }
+      .option-icon {
+        font-size: 2.5rem;
+        color: #0d6efd;
+        margin-bottom: 0.5rem;
+      }
+
+      /* body::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+
+        .img-cover{
+          width: 100%;
+        
+        }
+      } */
+
+      /* Decorative left panel for large screens */
+      @media (min-width: 992px) {
+        .intro-panel {
+          border-radius: 1rem 0 0 1rem;
+          background: linear-gradient(135deg, #90caf9 0%, #e3f2fd 100%);
+          box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.08);
+          color: #0d47a1;
+          padding: 3rem 2rem;
+          min-height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+        }
+        .options-panel {
+          border-radius: 0 1rem 1rem 0;
+          background: #fff;
+          box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.08);
+          padding: 3rem 2rem;
+          min-height: 100%;
+        }
+      }
+    </style>
+  <link href="style.css" rel="stylesheet"></head>
+  <body>
+    <div class="container py-5">
+      <div
+        class="row justify-content-center align-items-stretch bg-transparent"
+      >
+        <!-- Introduction Panel -->
+        <div class="col-12 col-lg-5 d-flex">
+          <div
+            class="intro-panel glass w-100 text-center text-lg-start mb-4 mb-lg-0"
+          >
+            <h1 class="fw-bold mb-4 display-5 text-neon">
+              Welcome to PharmCalc!
+            </h1>
+            <p class="lead mb-4 text-light w-100">
+              <i class="bi bi-heart-pulse-fill text-neon me-2"></i>
+              Your all-in-one pharmaceutical calculator for clinicians,
+              pharmacists, and students.
+            </p>
+            <hr class="w-50 mx-auto mx-lg-0" />
+            <ul class="list-unstyled mt-4 mb-0 d-none d-lg-block">
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-neon me-2"></i>
+                Fast, accurate dose calculations
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-neon me-2"></i>
+                PK/PD and anthropometric tools
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill text-neon me-2"></i>
+                AI-powered assistance
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Options Panel -->
+        <div class="col-12 col-lg-7 d-flex">
+          <div class="options-panel w-100">
+            <h5 class="mb-3 text-center text-light">
+              What type of calculation would you like to make?
+            </h5>
+            <div class="underline"></div>
+            <div class="row g-3">
+              <!-- Dose Calculation -->
+              <div class="col-12 col-sm-6">
+                <div
+                  tabindex="0"
+                  class="card option-card glass text-center py-4 h-100"
+                  onclick="location.href='dose-calculation.html'"
+                >
+                  <div class="option-icon"><i class="bi bi-capsule"></i></div>
+                  <h5 class="fw-semibold mb-2 text-light">Dose Calculation</h5>
+                  <small class="text-neon"
+                    >Calculate drug doses based on weight, age, or
+                    condition.</small
+                  >
+                </div>
+              </div>
+              <!-- Pharmacokinetic Calculation -->
+              <div class="col-12 col-sm-6">
+                <div
+                  tabindex="0"
+                  class="card option-card glass text-center py-4 h-100"
+                  onclick="location.href='pharmacokinetic.html'"
+                >
+                  <div class="option-icon"><i class="bi bi-graph-up"></i></div>
+                  <h5 class="fw-semibold mb-2 text-light">
+                    Pharmacokinetic Calculation
+                  </h5>
+                  <small class="text-neon"
+                    >Estimate drug levels, half-life, clearance, and
+                    more.</small
+                  >
+                </div>
+              </div>
+              <!-- Anthropometric Calculation -->
+              <div class="col-12 col-sm-6">
+                <div
+                  tabindex="0"
+                  class="card option-card glass text-center py-4 h-100"
+                  onclick="location.href='anthropometric.html'"
+                >
+                  <div class="option-icon">
+                    <i class="bi bi-person-arms-up"></i>
+                  </div>
+                  <h5 class="fw-semibold mb-2 text-light">
+                    Anthropometric Calculation
+                  </h5>
+                  <small class="text-neon"
+                    >Calculate BMI, BSA, IBW, and other body metrics.</small
+                  >
+                </div>
+              </div>
+              <!-- Ask AI -->
+              <div class="col-12 col-sm-6">
+                <div
+                  tabindex="0"
+                  class="glass card option-card text-center py-4 h-100"
+                  onclick="location.href='ask-ai.html'"
+                >
+                  <div class="option-icon"><i class="bi bi-robot"></i></div>
+                  <h5 class="fw-semibold mb-2 text-light">Ask AI</h5>
+                  <small class="text-neon"
+                    >Let our AI assistant help with your pharmaceutical
+                    queries.</small
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="mt-5 text-center text-neon small">
+              &copy; 2025 PharmCalc. All rights reserved.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script defer src="main.js"></script></body>
+</html>
