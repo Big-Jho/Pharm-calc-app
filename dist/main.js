@@ -20,16 +20,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
-/***/ "./src/images/cover.png":
-/*!******************************!*\
-  !*** ./src/images/cover.png ***!
-  \******************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-eval("module.exports = __webpack_require__.p + \"images/06eb80bff9c05a60f5cc.png\";\n\n//# sourceURL=webpack://pharm-calc-project/./src/images/cover.png?");
-
-/***/ }),
-
 /***/ "./src/images/cover2.jpg":
 /*!*******************************!*\
   !*** ./src/images/cover2.jpg ***!
@@ -80,6 +70,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/js/DoseCalcForm.js":
+/*!********************************!*\
+  !*** ./src/js/DoseCalcForm.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _DoseCalc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DoseCalc */ \"./src/js/DoseCalc.js\");\n\nclass DoseCalcForm {\n  constructor() {\n    this.form = document.getElementById(\"calcForm\");\n    this.doseEl = document.getElementById(\"dose\");\n    this.doseUnitEl = document.getElementById(\"doseUnit\");\n    this.weightEl = document.getElementById(\"weight\");\n    this.weightUnitEl = document.getElementById(\"weightUnit\");\n    this.concEl = document.getElementById(\"concentration\");\n    this.concUnitEl = document.getElementById(\"concentrationUnit\");\n    this.resultEl = document.getElementById(\"resultDiv\");\n    this.form.addEventListener(\"submit\", this.handleSubmit.bind(this));\n  }\n  handleSubmit(event) {\n    event.preventDefault();\n    const dose = document.getElementById(\"dose\").value;\n    const doseUnit = document.getElementById(\"doseUnit\").value;\n    const weight = document.getElementById(\"weight\").value;\n    const weightUnit = document.getElementById(\"weightUnit\").value;\n    const conc = document.getElementById(\"concentration\").value;\n    const concUnit = document.getElementById(\"concentrationUnit\").value;\n    const doseCalulator = new _DoseCalc__WEBPACK_IMPORTED_MODULE_0__[\"default\"](dose, doseUnit, conc, concUnit, weight, weightUnit);\n    const volume = doseCalulator.calcVolumeInMl();\n    const amount = doseCalulator.calcAmountInMg();\n\n    // console.log(doseCalulator);\n\n    this.showResult(amount, volume);\n    return;\n  }\n  showResult(amount, volume) {\n    const result = document.createElement(\"div\");\n    result.id = \"resultText\";\n    result.innerHTML = `\n      <h5 class=\"mb-3\">Calculation Results</h5>\n      <ul class=\"list-group\">\n        <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n          <strong>Volume to Dispense:</strong>\n          <span id=\"volumeToDispense\">${volume.value.toFixed(2)}${volume.unit}</span>\n        </li>\n        <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n          <strong>Amount of Drug Present:</strong>\n          <span id=\"drugAmountInGrams\">${amount.value.toFixed(2)}${amount.unit}</span>\n        </li>\n      </ul>\n    `;\n    this.resultEl.appendChild(result);\n    this.resultEl.style.display = \"block\";\n    return;\n  }\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DoseCalcForm);\n\n//# sourceURL=webpack://pharm-calc-project/./src/js/DoseCalcForm.js?");
+
+/***/ }),
+
 /***/ "./src/js/Volume.js":
 /*!**************************!*\
   !*** ./src/js/Volume.js ***!
@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _images_cover_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../images/cover.png */ \"./src/images/cover.png\");\n/* harmony import */ var _images_cover2_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/cover2.jpg */ \"./src/images/cover2.jpg\");\n/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../css/style.css */ \"./src/css/style.css\");\n/* harmony import */ var _DoseCalc__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DoseCalc */ \"./src/js/DoseCalc.js\");\n\n\n\n\nclass DoseCalcForm {\n  constructor() {\n    this.form = document.getElementById(\"calcForm\");\n    this.doseEl = document.getElementById(\"dose\");\n    this.doseUnitEl = document.getElementById(\"doseUnit\");\n    this.weightEl = document.getElementById(\"weight\");\n    this.weightUnitEl = document.getElementById(\"weightUnit\");\n    this.concEl = document.getElementById(\"concentration\");\n    this.concUnitEl = document.getElementById(\"concentrationUnit\");\n    this.resultEl = document.getElementById(\"resultDiv\");\n    this.form.addEventListener(\"submit\", this.handleSubmit.bind(this));\n  }\n  handleSubmit(event) {\n    event.preventDefault();\n    const dose = document.getElementById(\"dose\").value;\n    const doseUnit = document.getElementById(\"doseUnit\").value;\n    const weight = document.getElementById(\"weight\").value;\n    const weightUnit = document.getElementById(\"weightUnit\").value;\n    const conc = document.getElementById(\"concentration\").value;\n    const concUnit = document.getElementById(\"concentrationUnit\").value;\n    const doseCalulator = new _DoseCalc__WEBPACK_IMPORTED_MODULE_3__[\"default\"](dose, doseUnit, conc, concUnit, weight, weightUnit);\n    const volume = doseCalulator.calcVolumeInMl();\n    const amount = doseCalulator.calcAmountInMg();\n\n    // console.log(doseCalulator);\n\n    this.showResult(amount, volume);\n    return;\n  }\n  showResult(amount, volume) {\n    const result = document.createElement(\"div\");\n    result.id = \"resultText\";\n    result.innerHTML = `\n      <h5 class=\"mb-3\">Calculation Results</h5>\n      <ul class=\"list-group\">\n        <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n          <strong>Volume to Dispense:</strong>\n          <span id=\"volumeToDispense\">${volume.value}${volume.unit}</span>\n        </li>\n        <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n          <strong>Amount of Drug Present:</strong>\n          <span id=\"drugAmountInGrams\">${amount.value}${amount.unit}</span>\n        </li>\n      </ul>\n    `;\n    this.resultEl.appendChild(result);\n    this.resultEl.style.display = \"block\";\n    return;\n  }\n}\nconst app = new DoseCalcForm();\n\n//# sourceURL=webpack://pharm-calc-project/./src/js/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _images_cover2_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../images/cover2.jpg */ \"./src/images/cover2.jpg\");\n/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/style.css */ \"./src/css/style.css\");\n/* harmony import */ var _DoseCalcForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DoseCalcForm */ \"./src/js/DoseCalcForm.js\");\n\n\n\nconst app = new _DoseCalcForm__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\n\n//# sourceURL=webpack://pharm-calc-project/./src/js/app.js?");
 
 /***/ })
 
