@@ -1,8 +1,8 @@
-import Weight from "./Weight";
-import Conc from "./Conc";
-import Dose from "./Dose";
-import Amount from "./Amount";
-import Volume from "./Volume";
+import Weight from "./parameters/Weight";
+import Conc from "./parameters/Conc";
+import Dose from "./parameters/Dose";
+import Amount from "./parameters/Amount";
+import Volume from "./parameters/Volume";
 
 class DoseCalc {
   constructor(dose, doseUnit, conc, concUnit, weight, weightUnit) {

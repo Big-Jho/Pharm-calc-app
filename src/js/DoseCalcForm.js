@@ -10,19 +10,36 @@ class DoseCalcForm {
     this.concEl = document.getElementById("concentration");
     this.concUnitEl = document.getElementById("concentrationUnit");
     this.resultEl = document.getElementById("resultDiv");
+    this.submitBTN = document.querySelector(".btn[type='submit']");
+    this.resultEl = document.getElementById("resultDiv");
 
     this.form.addEventListener("submit", this.handleSubmit.bind(this));
+    this.form.addEventListener("reset", this.resetUI.bind(this));
+  }
+
+  resetUI() {
+    this.weightEl.value = "";
+    this.weightUnitEl.value = "kg";
+
+    this.doseEl.value = "";
+    this.doseUnitEl.value = "mg/kg";
+
+    this.concEl.value = "";
+    this.concUnitEl.value = "mg/ml";
+
+    this.resultEl.innerHTML = "";
+    this.submitBTN.removeAttribute("disabled");
   }
 
   handleSubmit(event) {
     event.preventDefault();
 
-    const dose = document.getElementById("dose").value;
-    const doseUnit = document.getElementById("doseUnit").value;
-    const weight = document.getElementById("weight").value;
-    const weightUnit = document.getElementById("weightUnit").value;
-    const conc = document.getElementById("concentration").value;
-    const concUnit = document.getElementById("concentrationUnit").value;
+    const dose = this.doseEl.value;
+    const doseUnit = this.doseUnitEl.value;
+    const weight = this.weightEl.value;
+    const weightUnit = this.weightUnitEl.value;
+    const conc = this.concEl.value;
+    const concUnit = this.concUnitEl.value;
 
     const doseCalulator = new DoseCalc(
       dose,
@@ -36,9 +53,8 @@ class DoseCalcForm {
     const volume = doseCalulator.calcVolumeInMl();
     const amount = doseCalulator.calcAmountInMg();
 
-    // console.log(doseCalulator);
-
     this.showResult(amount, volume);
+    this.submitBTN.setAttribute("disabled", true);
     return;
   }
 

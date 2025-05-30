@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pharmacokinetics Calculation</title>
+
+    <title>Ask-AI</title>
   </head>
-  <body id="kineticsPage">
-    <!-- nav -->
+  <body id="askPage">
+    <!-- Main menu -->
     <nav>
       <div class="main-menu">
         <h3 class="logo text-neon">
@@ -26,22 +27,23 @@
             <a href="dose-calculator.html">Dosing</a>
             <div class="menu-underline"></div>
           </li>
-          <li class="current">
-            <a href="#">Pharmacokinetics</a>
+          <li>
+            <a href="kinetics-calculator.html">Pharmacokinetics</a>
             <div class="menu-underline"></div>
           </li>
           <li>
             <a href="anthropometric-calculator.html">Anthropometrics</a>
             <div class="menu-underline"></div>
           </li>
-          <li>
-            <a href="ask.html">Ask AI</a>
+          <li class="current">
+            <a href="#">Ask AI</a>
             <div class="menu-underline"></div>
           </li>
         </ul>
       </div>
     </nav>
 
+    <!-- Mobile menu -->
     <div class="mobile-menu">
       <ul class="menu-list">
         <li class="menu-list-item menu-step-1">
@@ -52,7 +54,7 @@
           <a href="dose-calculator.html">Dosing</a>
           <div class="mobile-menu-underline"></div>
         </li>
-        <li class="menu-list-item menu-step-1 active">
+        <li class="menu-list-item menu-step-1">
           <a href="kinetics-calculator.html">Pharmacokinetics</a>
           <div class="mobile-menu-underline"></div>
         </li>
@@ -60,23 +62,29 @@
           <a href="anthropometric-calculator.html">Anthropometics</a>
           <div class="mobile-menu-underline"></div>
         </li>
-        <li class="menu-list-item menu-step-1">
+        <li class="menu-list-item menu-step-1 active">
           <a href="ask-ai.html">Ask AI</a>
           <div class="mobile-menu-underline"></div>
         </li>
       </ul>
     </div>
 
-    <!-- button -->
     <section class="form">
-      <form action="">
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">Calculate</button>
-        </div>
-
-        <div id="resultDiv" class="alert alert-success mt-4">
-          <!-- Calculation results will appear here -->
-          <p id="result"></p>
+      <form action="#" id="aiForm">
+        <div class="form-container">
+          <div class="form-group ask-ai">
+            <textarea
+              name="question"
+              id="question"
+              class="ai-question"
+              placeholder="Enter your question here"
+              rows="1"
+            ></textarea>
+            <!-- button -->
+            <button type="submit" class="btn btn-primary">
+              <i class="bi bi-arrow-up-circle"></i>
+            </button>
+          </div>
         </div>
       </form>
     </section>

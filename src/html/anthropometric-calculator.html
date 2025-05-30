@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dose-calculation</title>
+
+    <title>Anthropometric-calculation</title>
   </head>
-  <body id="doseCalcPage">
+  <body id="anthroCalcPage">
     <!-- nav -->
     <nav>
       <div class="main-menu">
@@ -22,16 +23,16 @@
             <a href="index.html">Home</a>
             <div class="menu-underline"></div>
           </li>
-          <li class="current">
-            <a href="#">Dosing</a>
+          <li>
+            <a href="dose-calculator.html">Dosing</a>
             <div class="menu-underline"></div>
           </li>
           <li>
             <a href="kinetics-calculator.html">Pharmacokinetics</a>
             <div class="menu-underline"></div>
           </li>
-          <li>
-            <a href="anthropometric-calculator.html">Anthropometrics</a>
+          <li class="current">
+            <a href="#">Anthropometics</a>
             <div class="menu-underline"></div>
           </li>
           <li>
@@ -48,7 +49,7 @@
           <a href="index.html">Home</a>
           <div class="mobile-menu-underline"></div>
         </li>
-        <li class="menu-list-item menu-step-1 active">
+        <li class="menu-list-item menu-step-1">
           <a href="dose-calculator.html">Dosing</a>
           <div class="mobile-menu-underline"></div>
         </li>
@@ -56,8 +57,8 @@
           <a href="kinetics-calculator.html">Pharmacokinetics</a>
           <div class="mobile-menu-underline"></div>
         </li>
-        <li class="menu-list-item menu-step-1">
-          <a href="anthropometric-calculator.html">Anthropometics</a>
+        <li class="menu-list-item menu-step-1 active">
+          <a href="#">Anthropometics</a>
           <div class="mobile-menu-underline"></div>
         </li>
         <li class="menu-list-item menu-step-1">
@@ -69,41 +70,61 @@
 
     <!-- form -->
     <section class="form">
-      <form action="#" id="calcForm">
+      <form action="#" id="anthroForm">
         <div class="form-container">
           <div class="form-group">
-            <h3>Dose Calculator</h3>
+            <h3>Anthropometric Calculator</h3>
           </div>
 
-          <!-- dose -->
+          <!-- calc type -->
           <div class="form-group">
-            <label class="label" for="dose">Dose</label>
+            <label for="calculationType">Select calculation type</label>
+            <select
+              class="form-select"
+              id="calculationType"
+              name="calculationType"
+              aria-label="calculation Type"
+              required
+            >
+              <option value="">Select Your Calculation Type</option>
+              <option value="bmi">Body Mass Index (BMI)</option>
+              <option value="bsa">Body Surface Area (Mostella Formula)</option>
+              <option value="ibw">Ideal Body Weight (IBW)</option>
+            </select>
+
+            <!-- underline -->
+            <div class="underline"></div>
+          </div>
+
+          <!-- height -->
+          <div class="form-group">
+            <label class="label" for="height">Height</label>
             <div class="flex-wrap">
               <input
                 type="number"
-                id="dose"
-                name="dose"
-                placeholder="Enter dose"
+                id="height"
+                name="height"
+                placeholder="Enter height"
                 step="any"
                 required
               />
               <select
                 class="form-select"
-                id="doseUnit"
-                name="doseUnit"
-                aria-label="dose unit"
+                id="heightUnit"
+                name="heightUnit"
+                aria-label="height unit"
                 required
               >
-                <option value="mg/kg">mg/Kg</option>
-                <option value="mcg/kg">mcg/Kg</option>
-                <option value="g/kg">g/Kg</option>
+                <option value="m">m</option>
+                <option value="cm">cm</option>
+                <option value="in">in</option>
               </select>
             </div>
           </div>
 
           <!-- weight -->
           <div class="form-group">
-            <label class="label" for="weight">Weight</label>
+            <label class="label" for="Weight">Weight</label>
             <div class="flex-wrap">
               <input
                 type="number"
@@ -121,37 +142,20 @@
                 required
               >
                 <option value="kg">Kg</option>
-                <option value="g">g</option>
+                <!-- <option value="g">g</option> -->
                 <option value="lb">lb</option>
               </select>
             </div>
           </div>
 
-          <!-- concentration -->
+          <!-- sex -->
           <div class="form-group">
-            <label class="label" for="concentration">Concentration</label>
-            <div class="flex-wrap">
-              <input
-                type="number"
-                id="concentration"
-                name="concentration"
-                placeholder="Enter concentration"
-                step="any"
-                required
-              />
-              <select
-                class="form-select"
-                id="concentrationUnit"
-                name="concentrationUnit"
-                aria-label="concentration unit"
-                required
-              >
-                <option value="mg/ml">mg/ml</option>
-                <option value="mcg/ml">mcg/ml</option>
-                <option value="mg/l">mg/L</option>
-                <option value="mcg/l">mcg/L</option>
-              </select>
-            </div>
+            <label for="sex">Sex</label>
+            <select name="sex" id="sex" required>
+              <option value="">Select Subject Sex</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
           </div>
 
           <!-- button -->

@@ -14,15 +14,15 @@ module.exports = {
 
   devServer: {
     static: {
-      directory: path.join(__dirname, "dist"), // folder to serve static files from
+      directory: path.join(__dirname, "dist"),
     },
-    compress: true, // enable gzip compression
-    port: 3000, // port number to run the server
-    open: true, // open default browser after server starts
-    hot: true, // enable Hot Module Replacement
-    allowedHosts: "all", // allow all hosts to access the dev server
+    compress: true,
+    port: 3000,
+    open: true,
+    hot: true,
+    allowedHosts: "all",
     client: {
-      webSocketURL: "ws://0.0.0.0:3000/ws", // websocket URL for live reload
+      webSocketURL: "ws://0.0.0.0:3000/ws",
     },
   },
 
@@ -62,11 +62,23 @@ module.exports = {
           },
         ],
       },
+
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)$/,
+        type: "asset/resource",
+        generator: {
+          filename: "fonts/[name][ext]",
+        },
+      },
+
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
     ],
   },
-
   output: {
-    assetModuleFilename: "images/[hash][ext][query]", // optional: customize output folder and filename
+    assetModuleFilename: "images/[hash][ext][query]",
   },
 
   plugins: [
@@ -94,6 +106,20 @@ module.exports = {
       inject: "body",
       scriptLoading: "defer",
       template: "./src/html/kinetics-calculator.html",
+    }),
+    new HtmlWebpackPlugin({
+      title: "Anthropometry Calculator",
+      filename: "anthropometric-calculator.html",
+      inject: "body",
+      scriptLoading: "defer",
+      template: "./src/html/anthropometric-calculator.html",
+    }),
+    new HtmlWebpackPlugin({
+      title: "PharmCalc - Ask AI",
+      filename: "ask-ai.html",
+      inject: "body",
+      scriptLoading: "defer",
+      template: "./src/html/ask-ai.html",
     }),
   ],
 };
