@@ -1,3 +1,5 @@
+import AiRequest from "./utilities/AiRequest";
+
 class AiForm {
   constructor() {
     this.form = document.getElementById("aiForm");
@@ -5,14 +7,6 @@ class AiForm {
     this.submitBTN = document.querySelector(".btn [type='submit']");
 
     this.form.addEventListener("submit", this.handleSubmit.bind(this));
-    this.questionEl.addEventListener("keypress", this.checkEnter.bind(this));
-  }
-
-  checkEnter(event) {
-    console.log(event.keyCode);
-    if (event.keyCode === 13) {
-      this.handleSubmit.bind(this);
-    }
   }
 
   handleSubmit(event) {
@@ -24,7 +18,10 @@ class AiForm {
       return;
     }
 
+    // const answer = new AiRequest(question);
+
     console.log(question);
+    // console.log(answer);
     question = "";
   }
 }
